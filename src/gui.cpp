@@ -149,17 +149,17 @@ void Render() noexcept {
 	if (ImGui::Button("Start Seamless Coop", ImVec2(WINDOW_WIDTH - 27, (WINDOW_HEIGHT / 3) - 28))) {
 		// Start eldenring.exe
 
-		auto path = boost::process::search_path("launch_elden_ring_seamlesscoop.exe");
+		auto path = boost::process::search_path("../launchmod_eldenring.bat");
 		if (path == "") {
 			SDL_ShowSimpleMessageBox(
 				SDL_MESSAGEBOX_ERROR,
 				"Error!",
-				"Could not find launch_elden_ring_seamlesscoop.exe.\n\n"
-				"Download the \"Seamless Coop\" mod from https://www.nexusmods.com/eldenring/mods/510",
+				"Could not find launchmod_eldenring.bat\n\n"
+				"Download Mod Engine 2 from https://github.com/soulsmods/ModEngine2",
 				nullptr);
 		}
 		else {
-			boost::process::spawn(path, "-eac-nop-loaded");
+			boost::process::spawn(path);
 		}
 	}
 
